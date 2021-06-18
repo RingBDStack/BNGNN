@@ -1,0 +1,14 @@
+Code of "Deep Reinforcement Learning Guided Graph Neural Networks for Brain Network Analysis"
+
+1. Code instructions
+/model/dqn.py: Realize the meta-policy module in BN-GNN.
+/model/gnn.py: Realize the network building module and the GNN module in BN-GNN.
+/main.py: Run our BN-GNN.
+
+2. Package requirements
+python=3.6.7
+pytorch=1.4.0
+cudnn=7.6.5
+numpy=1.19.5
+scipy=1.2.1
+deepwalk=1.0.3
