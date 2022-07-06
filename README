@@ -1,13 +1,36 @@
-Code of "Deep Reinforcement Learning Guided Graph Neural Networks for Brain Network Analysis"
+0.BN-GNN
+Python implementation for "Deep reinforcement learning guided graph neural networks for brain network analysis"
 
-1. Code instructions
+1.Overview
+data.tar: Compression of three public datasets.
 /model/dqn.py: Realize the meta-policy module in BN-GNN.
 /model/gnn.py: Realize the network building module and the GNN module in BN-GNN.
+main.py: Entry file of BN-GNN.
 
-2. Package requirements
+2.Example
+python main.py
+
+3.Requirements
 python=3.6.7
 pytorch=1.4.0
 cudnn=7.6.5
 numpy=1.19.5
 scipy=1.2.1
 deepwalk=1.0.3
+
+4.Baselines
+DeepWalk: "Deepwalk: Online learning of social representations"
+Node2Vec: "Node2vec: Scalable feature learning for networks"
+GCN: "Semi-supervised classification with graph convolutional networks"
+GAT: "Graph attention networks"
+GraphSAGE: "Inductive representation learning on large graphs"
+FastGCN: "FastGCN: Fast learning with graph convolutional networks via importance sampling"
+PR-GNN: "Pooling regularized graph neural network for fmri biomarker analysis"
+GNEA: "GNEA: A graph neural network with ELM aggregator for brain network classification"
+Hi-GCN: "Hi-GCN: A hierarchical graph convolution network for graph embedding learning of brain network and brain disorders prediction"
+SDBN: "Structural deep brain network mining"
+
+5.Public Datasets
+ADHD-fMRI & HI-fMRI & GD-fMRI
+"Task sensitive feature exploration and learning for multitask graph classification"
+"A whole brain fMRI atlas generated via spatially constrained spectral clustering"
