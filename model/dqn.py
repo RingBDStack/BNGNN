@@ -70,14 +70,21 @@ class QAgent(object):
         return best_action, epsilon
     def train(self):
         state_batch, action_batch, reward_batch, next_state_batch = self.memory.sample()
-        q_values_next_target = self.q_estimator.predict_nograd(next_state_batch)
-        best_actions_next = np.argmax(q_values_next_target, axis=1)
         q_values_next_target = self.target_estimator.predict_nograd(next_state_batch)
+        best_actions_next = np.argmax(q_values_next_target, axis=1)
         target_batch = reward_batch + self.discount_factor * q_values_next_target[np.arange(self.batch_size), best_actions_next]
         self.q_estimator.update(state_batch, action_batch, target_batch)
-        if self.train_t % 10 == 0:
-            self.target_estimator = deepcopy(self.q_estimator)
-        self.train_t += 1
+        self.target_estimator = deepcopy(self.q_estimator)
+
+        # state_batch, action_batch, reward_batch, next_state_batch = self.memory.sample()
+        # q_values_next_target = self.q_estimator.predict_nograd(next_state_batch)
+        # best_actions_next = np.argmax(q_values_next_target, axis=1)
+        # q_values_next_target = self.target_estimator.predict_nograd(next_state_batch)
+        # target_batch = reward_batch + self.discount_factor * q_values_next_target[np.arange(self.batch_size), best_actions_next]
+        # self.q_estimator.update(state_batch, action_batch, target_batch)
+        # if self.train_t % 10 == 0:
+        #     self.target_estimator = deepcopy(self.q_estimator)
+        # self.train_t += 1
 
 class Estimator(object):
     def __init__(self,
